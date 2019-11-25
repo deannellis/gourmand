@@ -18,7 +18,14 @@ var indexRoutes = require("./routes/index"),
     shoppingListRoutes = require("./routes/shoppingList");
 
 //  APP CONFIG
-mongoose.connect("mongodb://localhost:27017/gourmand", {useNewUrlParser: true});
+mongoose.connect(process.env.DB_URL, {
+    useNewUrlParser: true
+}).then(() => {
+    console.log('Connected to Database!');
+}).catch(err => {
+    console.log('Error: ', err.message);
+});
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'pug');
 app.use("/public", express.static(path.join(__dirname, 'public')));

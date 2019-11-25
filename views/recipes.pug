@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    if !user
+        h1 Start your collection of recipes today!
+        .button__wrapper
+            a(href="/register")
+                button.button--primary Sign Up
+    else
+        if recipes && recipes.length >= 1
+            h1 My #{recipes.length} #{recipes.length == 1 ? 'recipe' : 'recipes'}
+            .button__wrapper
+                a(href="/recipes/new")
+                    button.button--primary #[i(class="fas fa-plus")] Add a new recipe
+                if recipesSorted
+                    a(href="/recipes")
+                        button.button--secondary #[i(class="fas fa-times")] Clear sort
+                else
+                    a(href="/recipes?sort=lastMade")
+                        button.button--secondary #[i(class="fas fa-sort-amount-up-alt")] Sort by last made
+            include includes/recipeCards.pug
+        else
+            h1 Add a recipe or #[a(href="/discover") discover recipes] to get started
+            .button__wrapper
+                a(href="/recipes/new")
+                    button.button--primary Add a new recipe

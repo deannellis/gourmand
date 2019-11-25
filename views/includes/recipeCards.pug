@@ -1,0 +1,26 @@
+.recipe-cards
+        if recipes.length == 0
+            p.recipe-card__none-found No recipes were found
+        each recipe in recipes
+            .recipe-card
+                a(href=`/recipes/${recipe._id}`)
+                    if recipe.image !== ''
+                        img.recipe-card__image(src=recipe.image alt=recipe.name)
+                    else
+                        .recipe-card__placeholder-image
+                            - const randNum = Math.floor(Math.random() * 6)
+                            case randNum
+                                when 0
+                                    i(class="fas fa-hamburger")
+                                when 1
+                                    i(class="fas fa-pizza-slice")
+                                when 2
+                                    i(class="fas fa-cheese")
+                                when 3
+                                    i(class="fas fa-hotdog")
+                                when 4
+                                    i(class="fas fa-drumstick-bite")
+                                when 5
+                                    i(class="fas fa-ice-cream")
+                    .recipe-card__content
+                        p= recipe.name

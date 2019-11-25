@@ -1,0 +1,14 @@
+.footer_wrapper {
+    background: $cream;
+    padding: $s-size;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    color: $sub-text-black;
+}
+
+.footer_wrapper>p>a {
+    color: $sub-text-black;
+}

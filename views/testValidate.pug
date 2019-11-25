@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h1 Test
+    form.form(action="/testvalidator" method="POST")
+        input(type="text" name="username" placeholder="username" required)
+        input(type="password" name="password" placeholder="password" required)
+        .button__wrapper
+            button.button--primary Test Input

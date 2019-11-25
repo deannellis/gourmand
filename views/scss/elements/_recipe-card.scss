@@ -1,0 +1,66 @@
+.recipe-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.recipe-card {
+    max-width: calc(#{$xl-size} * 5);
+    box-shadow: $depth-1;
+    border-radius: 4px;
+    transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
+    margin: 0 $m-size $l-size 0;
+    // border: 1px solid $border-black;
+}
+
+.recipe-card:hover {
+    box-shadow: $depth-2;
+}
+
+.recipe-card a:link {
+    text-decoration: none;
+}
+
+.recipe-card__image {
+    width: 100%;
+    height: calc(#{$xl-size} * 5);
+    object-fit: cover;
+    border-radius: 4px 4px 0 0;
+}
+
+.recipe-card__placeholder-image {
+    @extend .recipe-card__image;
+    min-width: calc(#{$xl-size} * 5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: adjust-color($cream-lite, $alpha: -0.7);
+    i {
+        color: $cream-lite;
+        font-size: 9.6rem;
+    }
+}
+
+.recipe-card__content {
+    padding: $m-size $s-size;
+    border-top: 2px solid $orange;
+}
+
+.recipe-card__content>p {
+    margin: 0;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+    color: $sub-text-black;
+    line-height: 2rem;
+    font-weight: 700;
+    width: calc((#{$xl-size} * 5) - #{$m-size});
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.recipe-card__none-found {
+    font-size: 2.4rem;
+    color: $sub-text-black;
+    margin-top: $l-size;
+}

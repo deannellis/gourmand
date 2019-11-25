@@ -1,0 +1,45 @@
+.toast {
+    position: fixed;
+    border-radius: 4px;
+    width: 500px;
+    bottom: 102px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: $z-top;
+    padding: $m-size;
+    font-size: 16px;
+    font-weight: 600;
+    // line-height: 21px;
+    opacity: .88;
+    animation: fade-out 0.3s cubic-bezier(.25,.8,.25,1) 5s;
+    animation-fill-mode: forwards;
+    p {
+        margin: 0;
+    }
+}
+
+.toast--success {
+    @extend .toast;
+    background: $cream-lite;
+    border: 2px solid adjust-color($cream, $lightness: -16%, $alpha: -0.16);
+    color: $text-black;
+}
+
+.toast--error {
+    @extend .toast;
+    border: 2px solid adjust-color($red, $lightness: -16%, $alpha: -0.16);
+    background: $red;
+    color: white;
+}
+
+@keyframes fade-out {
+    from {
+        opacity: .88;
+        box-shadow: $depth-2;
+    }
+    to {
+        opacity: 0;
+        pointer-events: none;
+        box-shadow: none;
+    }
+}

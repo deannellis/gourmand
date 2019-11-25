@@ -1,0 +1,81 @@
+doctype html
+html
+    head
+        - const title = pageTitle ? `Gourmand | ${pageTitle}` : 'Gourmand'
+        title= title
+        meta(name="viewport" content="width=device-width, initial-scale=1") 
+        link(rel="stylesheet" href="/public/css/styles.css")
+        link(href="https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto&display=swap" rel="stylesheet")
+        link(rel="apple-touch-icon", sizes="180x180", href="/public/images/apple-touch-icon.png")
+        link(rel="icon", type="image/png", sizes="32x32", href="/public/images/favicon-32x32.png")
+        link(rel="icon", type="image/png", sizes="16x16", href="/public/images/favicon-16x16.png")
+        link(rel="manifest", href="/public/images/site.webmanifest")
+        link(rel="mask-icon", href="/public/images/safari-pinned-tab.svg", color="#f06a6d")
+        link(rel="shortcut icon", href="/public/images/favicon.ico")
+        meta(name="msapplication-TileColor", content="#f06a6d")
+        meta(name="msapplication-config", content="/public/images/browserconfig.xml")
+        meta(name="theme-color", content="#f0d9c8")
+        script(src="https://kit.fontawesome.com/7b41502243.js")
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+    body
+        .scrim
+        header.header__wrapper
+            .header__logo
+                a(href="/")
+                    img(src='/public/images/gorumand_wordmark@2x.png' height="56px")
+            .header__menu-toggle
+                i#menu-toggle(class="fas fa-bars")
+            nav.header__nav
+                ul.header__nav-list
+                    - 
+                        const navItems = [ 
+                            {label: "My recipes", to: "/recipes", selected: pageTitle == 'My Recipes'}, 
+                            {label: "Shopping list", to: "/shoppinglist", selected: pageTitle == 'Shopping List'},
+                            {label: "Discover", to: "/discover", selected: pageTitle == 'Discover'},
+                        ]
+                    each item in navItems
+                        li(class=`${item.selected ? 'header__nav-item--selected' : 'header__nav-item'}`)
+                            a(href=item.to) #{item.label}
+                    ul.header__auth-links
+                        if !user
+                            li.header__nav-item
+                                a(href="/login") Log in
+                            li.header__nav-item
+                                a(href="/register") Sign up
+                        else
+                            li.header__nav-item #[i(class="fas fa-user")] #{user.username}
+                                
+                            li.header__nav-item
+                                a(href="/logout") Log out
+                
+        div(class=`${isFullWidth ? 'page-body--full-width' : 'page-body'}`)
+            if error && error.length > 0
+                .toast--error
+                    p.toast__message= error
+            if success && success.length > 0
+                .toast--success
+                        p.toast__message= success
+            block content
+        footer.footer_wrapper
+            -const currentYear = new Date().getFullYear()
+            p © #[a(href="http://deannellisdesign.com/") Dean Nellis] #{currentYear}
+        script.
+            $(document).ready(function(){
+                $(document).click(function(event) {
+                    $target = $(event.target);
+                    if($target[0].id == "menu-toggle") {
+                        $(".header__nav").addClass("header__nav--open");
+                        $(".scrim").addClass("scrim--show");
+                        $('html, body').css({
+                            overflow: 'hidden'
+                        });
+                    }else if(!$target.closest('.header__nav').length) {
+                        $(".header__nav").removeClass("header__nav--open");
+                        $(".scrim").removeClass("scrim--show");
+                        $('html, body').css({
+                            overflow: 'auto'
+                        });
+                    }
+                });
+            });
+        block scripts

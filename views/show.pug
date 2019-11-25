@@ -1,0 +1,56 @@
+extends layout
+
+block content
+    .show__wrapper
+        .show__header
+            h1= recipe.name
+            i
+                p submitted by #{author}
+        .button__wrapper.show__add-button
+            if user
+                form(action=`/shoppinglist/${recipe._id}` method="POST")
+                    button.button--secondary #[i(class="fas fa-plus")] Add to shopping list 
+            if user && !createdByUser && !userHasRecipe
+                form(action=`/recipes/${recipe._id}/add` method="POST")
+                    button.button--primary #[i(class="fas fa-plus")] Add to my recipes
+        if recipe.image !== ''
+            img.show__image(src=recipe.image alt=recipe.name)
+        else
+            .show__image-placeholder
+                - const randNum = Math.floor(Math.random() * 6)
+                    case randNum
+                        when 0
+                            i(class="fas fa-hamburger")
+                        when 1
+                            i(class="fas fa-pizza-slice")
+                        when 2
+                            i(class="fas fa-cheese")
+                        when 3
+                            i(class="fas fa-hotdog")
+                        when 4
+                            i(class="fas fa-drumstick-bite")
+                        when 5
+                            i(class="fas fa-ice-cream")
+        .show__details
+            .show__details-top
+                if !!recipe.servings
+                    p #[i Servings: #{recipe.servings}]
+                if recipe.tags.length !== 0
+                    each tag in recipe.tags
+                        .show__tag #{tag}
+            h2 Ingredients
+            ul
+                each ingredient in recipe.ingredients
+                    li= ingredient
+            h2 Instructions
+            p !{instructions}
+            i
+                a(href=recipe.url) View recipe source
+            .button__wrapper
+                a(href="javascript:history.back()")
+                    button.button--secondary #[i(class="fas fa-chevron-left")] Back to recipes
+                if user && recipe.author.id.toString() == user._id
+                    a(href=`/recipes/${recipe._id}/edit`)
+                        button.button--primary #[i(class="fas fa-edit")] Edit recipe
+                    form(action=`/recipes/${recipe._id}?_method=DELETE` method="POST" style={'display': 'inline'} onSubmit="if(!confirm('Are you sure you want to delete this recipe?')){return false;}")
+                        button.button--danger #[i(class="fas fa-trash-alt")] Delete recipe

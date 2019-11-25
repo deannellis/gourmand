@@ -1,0 +1,28 @@
+extends layout
+
+block content
+    h1 Discover new recipes
+    form.form--narrow.search__form(action="/discover" method="GET")
+        .search.form__input--with-control
+            input(type="text" name="search" placeholder=`${searchTerm ? searchTerm : "search recipes"}`)
+            button
+                i(class="fas fa-search")
+        if searchTerm
+            a.search__clear(href="/discover")
+                    button.button--secondary #[i(class="fas fa-times")] Clear Search
+    .tabs
+        - 
+            const tabs = [
+                {label: "All Recipes", path: "/discover", selected: activeTag == undefined},
+                {label: "Breakfast", path: "/discover?tag=breakfast", selected: activeTag == 'breakfast'},
+                {label: "Dessert", path: "/discover?tag=dessert", selected: activeTag == 'dessert'},
+                {label: "Vegan", path: "/discover?tag=vegan", selected: activeTag == 'vegan'},
+                {label: "Vegetarian", path: "/discover?tag=vegetarian", selected: activeTag == 'vegetarian'},
+                {label: "Meal prep", path: "/discover?tag=meal+prep", selected: activeTag == 'meal prep'},
+            ]
+        each tab in tabs
+            div(class=`${tab.selected ? 'tab--selected' : 'tab'}`)
+                a(href=tab.path)= tab.label
+    if searchTerm
+        p.search__status Showing recipes with keyword #[span #{searchTerm}]
+    include includes/recipeCards.pug

@@ -1,0 +1,32 @@
+form(action="/recipes" method="POST" class="form")
+    h1.form__header= recipe ? `Edit ${recipe.name}` : 'Add new recipe'
+    - 
+        const inputs = [
+            {type: "text", label: "Recipe Name", name: "name", required: true},
+            {type: "text", label: "Recipe Image URL", name: "image", required: false},
+            {type: "text", label: "Link to Recipe", name: "url", required: false},
+        ]
+    each input in inputs
+        div.form__field
+            label= input.label
+            input(type=input.type placeholder=input.label name=input.name required=input.required value= recipe ? recipe[input.name] : '')
+    
+    #ingredient-list.form__field
+        label Ingredients
+        //- - const itemStyles = {'margin-bottom': '.4rem'}
+        .list-item.form__input--with-control(style=itemStyles)
+            //- Hit a snag on this line !!!!!
+            //- Would have to iterate over exisiting recipes, make them deleteable, and maintain dynamically added input
+            //- Let's try this in two files first and then maybe revisit a dynamic form
+            input(type="text" name="ingredients[0].name" placeholder="Ingredient and Amount" value= recipe ? recipe. : '')
+            a(href="#" class="list-remove") 
+                strong –
+        button.button--secondary(type="button")
+            a(href="#" class="list-add") Add Ingredient
+
+    div.form__field
+        label Instructions
+        textarea(name="instructions" placeholder="Recipe Instructions" rows="10")
+
+    .button__wrapper
+        button.button--primary(type="submit") Add Recipe

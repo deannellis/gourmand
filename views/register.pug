@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    h1 Join Gourmand
+    form.form--narrow(action="/register" method="POST")
+        input(type="text" name="username" placeholder="username" pattern=".{3,}" required)
+        p.form__helper-text Username must be 3 characters long
+        input(type="password" name="password" placeholder="password" pattern=".{6,}" required)
+        p.form__helper-text Password must be 6 characters long 
+        .button__wrapper
+            button.button--primary Sign Up

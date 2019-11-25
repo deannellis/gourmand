@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h1 Log in to Gourmand
+    form.form--narrow(action="/login" method="POST")
+        input.form__field(type="text" name="username" placeholder="username" required)
+        input.form__field(type="password" name="password" placeholder="password" required)
+        .button__wrapper
+            button.button--primary Log In

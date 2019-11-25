@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    h1 My shopping list
+    if shoppingList.length == 0
+        p Your shopping list is empty
+        p Add ingredients from #[a(href="/recipes") your recipes] to your shopping list.
+    else
+        p You have #{shoppingList.length} ingredients in your list
+        ul
+            each ingredient,i in shoppingList
+                li.shopping-list__item
+                    input.checkbox(type="checkbox" id=`ingredient-${i}`)
+                    label.checkbox__label(for=`ingredient-${i}`) #{ingredient}
+        .button__wrapper
+            form(action="/shoppinglist?_method=DELETE" method="POST")
+                button.button--primary Clear shopping list

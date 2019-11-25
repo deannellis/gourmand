@@ -1,0 +1,116 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    padding-bottom: $m-size;
+    width: 100%;
+}
+
+.form--narrow {
+    @extend .form;
+    width: 30%;
+    min-width: 24rem;
+}
+
+.form input, .form textarea {
+    margin: 2px 0;
+    padding: $s-size;
+    min-width: 125px;
+    border: 1px solid $border-black;
+    border-radius: 4px;
+    transition: all .3s ease-in;
+    width: 100%;
+    font-size: 1.4rem;
+    outline: none;
+    background: #fff;
+}
+
+.form input:focus, .form textarea:focus {
+    border: 2px solid $orange;
+    margin: 1px 0;
+    background: adjust-color($cream-lite, $alpha: -0.4, $lightness: 11%);
+}
+
+.form label {
+    line-height: 2.4rem;
+}
+
+.form__field {
+    clear: both;
+    display: block;
+    width: 100%;
+    margin-bottom: $m-size;
+}
+
+.form__field--grouped-inputs {
+    @extend .form__field;
+    background: adjust-color($cream-lite, $alpha: -0.5);
+    border-radius: 4px;
+    padding: $l-size;
+    p {
+        color: $sub-text-black;
+    }
+}
+
+.form__header {
+    border-bottom: 2px solid $red;
+}
+
+.form__input--with-control {
+    display: flex;
+    align-items: center;
+    input {
+        border-radius: 4px 0 0 4px;
+    }
+    a, button {
+        text-decoration: none;
+        padding: .8rem $m-size .9rem;
+        border: 1px solid $border-black;
+        border-left: 0;
+        border-radius: 0 4px 4px 0;
+        font-size: 2rem;
+        font-weight: 700;
+        background: adjust-color($red, $lightness: -9%, $alpha: -0.16);
+        color: #fff;
+        min-height: 4.3rem;
+    }
+}
+
+.form__field--narrow {
+    @extend .form__field;
+    width: 30%;
+}
+
+#ingredient-list div:nth-child(2) input{
+    border-radius: 4px;
+}
+
+.form__helper-text {
+    color: $sub-text-black;
+    margin: $xs-size 0 $m-size $xs-size;
+    font-size: 1.4rem;
+}
+
+.form .button__wrapper {
+    margin-top: $xs-size;
+}
+
+.form__check-list {
+    display: flex;
+    padding: 0 0 $m-size;
+    flex-wrap: wrap;
+}
+
+.form__check-list-item {
+    list-style: none;
+    margin: 0 $m-size $l-size 0;
+    label {
+        line-height: 2.6rem;
+    }
+}
+
+@include for-tablet-portrait-up {
+    .form {
+        width: 64%;
+    }
+}

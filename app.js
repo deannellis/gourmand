@@ -67,7 +67,7 @@ function isLoggedIn(req, res, next) {
     res.redirect("/login");
 }
 
-app.listen(7777, () => {
+app.listen(process.env.PORT, () => {
     console.log(
         'App is running on port 7777' + '\n' +'\n' +
         '   (         )      ' + '\n' +

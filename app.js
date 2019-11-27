@@ -69,7 +69,7 @@ function isLoggedIn(req, res, next) {
 
 app.listen(process.env.PORT, () => {
     console.log(
-        'App is running on port 7777' + '\n' +'\n' +
+        `App is running on port ${process.env.PORT}` + '\n' +'\n' +
         '   (         )      ' + '\n' +
         '    )       (       ' + '\n' +
         '// ""--.._' + '\n' +

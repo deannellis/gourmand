@@ -1,9 +1,14 @@
 extends layout
 
 block content
-    h1 Log in to Gourmand
-    form.form--narrow(action="/login" method="POST")
-        input.form__field(type="text" name="username" placeholder="username" required)
-        input.form__field(type="password" name="password" placeholder="password" required)
-        .button__wrapper
-            button.button--primary Log In
+    .form-card
+        //- img(src='/public/images/gorumand_wordmark@2x.png' height="56px")
+        .form-card__main
+            h3 Log in to your account
+            form.form--narrow(action="/login" method="POST")
+                input.form__field(type="text" name="username" placeholder="username" required)
+                input.form__field(type="password" name="password" placeholder="password" required)
+                button.button--primary Log In
+        .form-card__bottom 
+            p New to Gourmand? #[a(href="/register") Sign up]
+        

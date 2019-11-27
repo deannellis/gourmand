@@ -1,0 +1,34 @@
+.form-card {
+    margin-top: 5%;
+    background: lighten($cream-lite, 5%);
+    display: flex;
+    flex-direction: column;
+    box-shadow: $depth-2;
+    border-radius: 4px;
+    padding-top: $m-size;
+    align-items: center;
+    button {
+        margin: $s-size 0;
+    }
+    h3 {
+        color: $red;
+        // text-shadow: $depth-1;
+    }
+}
+
+.form-card__main {
+    padding: 0 $l-size;
+    text-align: center;;
+}
+
+.form-card__bottom {
+    background: $cream-lite;
+    border-top: 1px solid $border-black;
+    width: 100%;
+    padding: 0 $l-size;
+    text-align: center;
+    color: $sub-text-black;
+    a {
+        color: $red;
+    }
+}

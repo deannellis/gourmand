@@ -18,7 +18,8 @@ var indexRoutes = require("./routes/index"),
     shoppingListRoutes = require("./routes/shoppingList");
 
 //  APP CONFIG
-mongoose.connect(process.env.DB_URL, {
+const dbUrl = process.env.NODE_ENV === "test" ? "mongodb://localhost:27017/gourmand-test" : process.env.DB_URL;
+mongoose.connect(dbUrl, {
     useNewUrlParser: true
 }).then(() => {
     console.log('Connected to Database!');
@@ -60,22 +61,4 @@ app.get("*", function(req, res) {
     res.render("notFound");
 });
 
-function isLoggedIn(req, res, next) {
-    if(req.isAuthenticated()) {
-        return next();
-    }
-    res.redirect("/login");
-}
-
-app.listen(process.env.PORT, () => {
-    console.log(
-        `App is running on port ${process.env.PORT}` + '\n' +'\n' +
-        '   (         )      ' + '\n' +
-        '    )       (       ' + '\n' +
-        '// ""--.._' + '\n' +
-        '||  (_)  _ "-._' + '\n' +
-        '||    _ (_)    \'-.' + '\n' +
-        '||   (_)   __..-\'' + '\n' +
-        ' \\\\ __..--\"\"' + '\n' 
-    );
-});
+module.exports = app;

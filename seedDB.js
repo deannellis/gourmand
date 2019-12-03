@@ -1,5 +1,6 @@
 var mongoose = require("mongoose");
 var Recipe = require("./models/recipe");
+var User = require("./models/user");
 
 async function startDB() {
     await Recipe.remove({}, err => {
@@ -8,18 +9,26 @@ async function startDB() {
         } else {
             console.log("removed all recipes")
         }
-
-        data.forEach(seed => {
-            Recipe.create(seed, (err, data) => {
-                if(err) {
-                    console.log('Error seeding db: ', err);
-                } else {
-                    console.log('Seed added to db');
-                }
-            });
-
-        });
     });
+    await User.remove({}, err => {
+        if(err) {
+            console.log("Error removing all users: ", err);
+        } else {
+            console.log("removed all users")
+        }
+    });
+    // for(const seed of seeds) {
+    //     await Recipe.create(seed, (err, data) => {
+    //         if(err) {
+    //             console.log('Error seeding db: ', err);
+    //         } else {
+    //             console.log('Seed added to db');
+    //         }
+    //     });
+    // }
+    await Recipe.create(seeds[0]);
+    await Recipe.create(seeds[1]);
+    await Recipe.create(seeds[2]);
 }
 
 async function endDB() {
@@ -32,8 +41,7 @@ module.exports = {
 };
 
 // DUMMY DATA
-
-const data = [
+const seeds = [
     {
         name: 'Recipe 1',
         image: 'https://www.budgetbytes.com/wp-content/uploads/2019/11/Smoky-Black-Bean-Soup-bowls-V2.jpg',

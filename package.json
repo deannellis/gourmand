@@ -6,7 +6,9 @@
 	"scripts": {
 		"start": "node server.js",
 		"dev": "concurrently \"nodemon server.js\" \"npm run watch-scss\"",
-		"watch-scss": "sass --watch views/scss/index.scss:public/css/styles.css"
+		"watch-scss": "sass --watch views/scss/index.scss:public/css/styles.css",
+		"test": "jest",
+		"test:watch": "jest --watch"
 	},
 	"author": "Dean Nellis",
 	"license": "ISC",
@@ -32,6 +34,7 @@
 		"concurrently": "^4.1.2",
 		"node-sass": "^4.13.0",
 		"nodemon": "^1.19.4",
+		"passport-mock-strategy": "^2.0.0",
 		"supertest": "^4.0.2"
 	}
 }

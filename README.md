@@ -1,5 +1,4 @@
-![Gourmand Logo](https://gourmand-recipes.herokuapp.com/public/images/gorumand_wordmark@2x.png)
-
+# Gourmand
 > [A place to save favorite recipes and discover new ones](https://gourmand-recipes.herokuapp.com/)
 
 ## Installation and Startup

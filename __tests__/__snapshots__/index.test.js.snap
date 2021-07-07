@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Index Routes should render the landing page with GET / 1`] = `
+"<!DOCTYPE html><html><head><title>Gourmand</title><meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\"><link rel=\\"stylesheet\\" href=\\"/public/css/styles.css\\"><link href=\\"https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto&amp;display=swap\\" rel=\\"stylesheet\\"><link rel=\\"apple-touch-icon\\" sizes=\\"180x180\\" href=\\"/public/images/apple-touch-icon.png\\"><link rel=\\"icon\\" type=\\"image/png\\" sizes=\\"32x32\\" href=\\"/public/images/favicon-32x32.png\\"><link rel=\\"icon\\" type=\\"image/png\\" sizes=\\"16x16\\" href=\\"/public/images/favicon-16x16.png\\"><link rel=\\"manifest\\" href=\\"/public/images/site.webmanifest\\"><link rel=\\"mask-icon\\" href=\\"/public/images/safari-pinned-tab.svg\\" color=\\"#f06a6d\\"><link rel=\\"shortcut icon\\" href=\\"/public/images/favicon.ico\\"><meta name=\\"msapplication-TileColor\\" content=\\"#f06a6d\\"><meta name=\\"msapplication-config\\" content=\\"/public/images/browserconfig.xml\\"><meta name=\\"theme-color\\" content=\\"#f0d9c8\\"><script src=\\"https://kit.fontawesome.com/7b41502243.js\\"></script><script src=\\"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js\\"></script></head><body><div class=\\"scrim\\"></div><header class=\\"header__wrapper\\"><div class=\\"header__logo\\"><a href=\\"/\\"><img src=\\"/public/images/gorumand_wordmark@2x.png\\" height=\\"56px\\"></a></div><div class=\\"header__menu-toggle\\"><i class=\\"fas fa-bars\\" id=\\"menu-toggle\\"></i></div><nav class=\\"header__nav\\"><ul class=\\"header__nav-list\\"><li class=\\"header__nav-item\\"><a href=\\"/recipes\\">My recipes</a></li><li class=\\"header__nav-item\\"><a href=\\"/shoppinglist\\">Shopping list</a></li><li class=\\"header__nav-item\\"><a href=\\"/discover\\">Discover</a></li><ul class=\\"header__auth-links\\"><li class=\\"header__nav-item\\"><a href=\\"/login\\">Log in</a></li><li class=\\"header__nav-item\\"><a href=\\"/register\\">Sign up</a></li></ul></ul></nav></header><div class=\\"page-body--full-width\\"><div class=\\"landing__hero-image\\"><div class=\\"landing__title\\"><h1>Where recipes live</h1><div class=\\"landing__title-icon\\"><div class=\\"landing__title-icon--left\\"></div><i class=\\"fas fa-utensils\\"></i><div class=\\"landing__title-icon--right\\"></div></div></div><img alt=\\"Baking a Pie, cover photo by Andy Chilton\\" src=\\"https://images.unsplash.com/photo-1452251889946-8ff5ea7b27ab?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1030&amp;q=80\\"></div><div class=\\"landing__new-recipes\\"><h1>Fresh new recipes</h1><div class=\\"recipe-cards\\"><div class=\\"recipe-card\\"><a href=\\"/recipes/scrubbedId\\"><img class=\\"recipe-card__image\\" src=\\"https://www.budgetbytes.com/wp-content/uploads/2019/11/Smoky-Black-Bean-Soup-bowls-V2.jpg\\" alt=\\"Recipe 1\\"><div class=\\"recipe-card__content\\"><p>Recipe 1</p></div></a></div><div class=\\"recipe-card\\"><a href=\\"/recipes/scrubbedId\\"><img class=\\"recipe-card__image\\" src=\\"https://www.budgetbytes.com/wp-content/uploads/2019/11/Roasted-Apple-Cranberry-Cornbread-Stuffing-pot-V1.jpg\\" alt=\\"Recipe 2\\"><div class=\\"recipe-card__content\\"><p>Recipe 2</p></div></a></div><div class=\\"recipe-card\\"><a href=\\"/recipes/scrubbedId\\"><img class=\\"recipe-card__image\\" src=\\"https://www.budgetbytes.com/wp-content/uploads/2019/11/Mushroom-and-Spinach-Pasta-with-Ricotta-plate-V1.jpg\\" alt=\\"Recipe 3\\"><div class=\\"recipe-card__content\\"><p>Recipe 3</p></div></a></div></div></div><div class=\\"landing__register\\"><h1>Sign up and start your new recipe collection</h1><div class=\\"button__wrapper\\"><a href=\\"/login\\"><button class=\\"button--secondary\\"><i class=\\"fas fa-user-plus\\"></i> Sign up</button></a></div></div></div><footer class=\\"footer_wrapper\\"><p>© <a href=\\"http://deannellisdesign.com/\\">Dean Nellis</a> 2019</p></footer><script>$(document).ready(function(){
+    $(document).click(function(event) {
+        $target = $(event.target);
+        if($target[0].id == \\"menu-toggle\\") {
+            $(\\".header__nav\\").addClass(\\"header__nav--open\\");
+            $(\\".scrim\\").addClass(\\"scrim--show\\");
+            $('html, body').css({
+                overflow: 'hidden'
+            });
+        }else if(!$target.closest('.header__nav').length) {
+            $(\\".header__nav\\").removeClass(\\"header__nav--open\\");
+            $(\\".scrim\\").removeClass(\\"scrim--show\\");
+            $('html, body').css({
+                overflow: 'auto'
+            });
+        }
+    });
+});</script></body></html>"
+`;
+
+exports[`Index Routes should render the login page with GET /login 1`] = `
+"<!DOCTYPE html><html><head><title>Gourmand</title><meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\"><link rel=\\"stylesheet\\" href=\\"/public/css/styles.css\\"><link href=\\"https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto&amp;display=swap\\" rel=\\"stylesheet\\"><link rel=\\"apple-touch-icon\\" sizes=\\"180x180\\" href=\\"/public/images/apple-touch-icon.png\\"><link rel=\\"icon\\" type=\\"image/png\\" sizes=\\"32x32\\" href=\\"/public/images/favicon-32x32.png\\"><link rel=\\"icon\\" type=\\"image/png\\" sizes=\\"16x16\\" href=\\"/public/images/favicon-16x16.png\\"><link rel=\\"manifest\\" href=\\"/public/images/site.webmanifest\\"><link rel=\\"mask-icon\\" href=\\"/public/images/safari-pinned-tab.svg\\" color=\\"#f06a6d\\"><link rel=\\"shortcut icon\\" href=\\"/public/images/favicon.ico\\"><meta name=\\"msapplication-TileColor\\" content=\\"#f06a6d\\"><meta name=\\"msapplication-config\\" content=\\"/public/images/browserconfig.xml\\"><meta name=\\"theme-color\\" content=\\"#f0d9c8\\"><script src=\\"https://kit.fontawesome.com/7b41502243.js\\"></script><script src=\\"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js\\"></script></head><body><div class=\\"scrim\\"></div><header class=\\"header__wrapper\\"><div class=\\"header__logo\\"><a href=\\"/\\"><img src=\\"/public/images/gorumand_wordmark@2x.png\\" height=\\"56px\\"></a></div><div class=\\"header__menu-toggle\\"><i class=\\"fas fa-bars\\" id=\\"menu-toggle\\"></i></div><nav class=\\"header__nav\\"><ul class=\\"header__nav-list\\"><li class=\\"header__nav-item\\"><a href=\\"/recipes\\">My recipes</a></li><li class=\\"header__nav-item\\"><a href=\\"/shoppinglist\\">Shopping list</a></li><li class=\\"header__nav-item\\"><a href=\\"/discover\\">Discover</a></li><ul class=\\"header__auth-links\\"><li class=\\"header__nav-item\\"><a href=\\"/login\\">Log in</a></li><li class=\\"header__nav-item\\"><a href=\\"/register\\">Sign up</a></li></ul></ul></nav></header><div class=\\"page-body\\"><div class=\\"form-card\\"><div class=\\"form-card__main\\"><h3>Log in to your account</h3><form class=\\"form--narrow\\" action=\\"/login\\" method=\\"POST\\"><input class=\\"form__field\\" type=\\"text\\" name=\\"username\\" placeholder=\\"username\\" required><input class=\\"form__field\\" type=\\"password\\" name=\\"password\\" placeholder=\\"password\\" required><button class=\\"button--primary\\">Log In</button></form></div><div class=\\"form-card__bottom\\"> <p>New to Gourmand? <a href=\\"/register\\">Sign up</a></p></div></div></div><footer class=\\"footer_wrapper\\"><p>© <a href=\\"http://deannellisdesign.com/\\">Dean Nellis</a> 2019</p></footer><script>$(document).ready(function(){
+    $(document).click(function(event) {
+        $target = $(event.target);
+        if($target[0].id == \\"menu-toggle\\") {
+            $(\\".header__nav\\").addClass(\\"header__nav--open\\");
+            $(\\".scrim\\").addClass(\\"scrim--show\\");
+            $('html, body').css({
+                overflow: 'hidden'
+            });
+        }else if(!$target.closest('.header__nav').length) {
+            $(\\".header__nav\\").removeClass(\\"header__nav--open\\");
+            $(\\".scrim\\").removeClass(\\"scrim--show\\");
+            $('html, body').css({
+                overflow: 'auto'
+            });
+        }
+    });
+});</script></body></html>"
+`;
+
+exports[`Index Routes should render the register page with GET /register 1`] = `
+"<!DOCTYPE html><html><head><title>Gourmand</title><meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\"><link rel=\\"stylesheet\\" href=\\"/public/css/styles.css\\"><link href=\\"https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto&amp;display=swap\\" rel=\\"stylesheet\\"><link rel=\\"apple-touch-icon\\" sizes=\\"180x180\\" href=\\"/public/images/apple-touch-icon.png\\"><link rel=\\"icon\\" type=\\"image/png\\" sizes=\\"32x32\\" href=\\"/public/images/favicon-32x32.png\\"><link rel=\\"icon\\" type=\\"image/png\\" sizes=\\"16x16\\" href=\\"/public/images/favicon-16x16.png\\"><link rel=\\"manifest\\" href=\\"/public/images/site.webmanifest\\"><link rel=\\"mask-icon\\" href=\\"/public/images/safari-pinned-tab.svg\\" color=\\"#f06a6d\\"><link rel=\\"shortcut icon\\" href=\\"/public/images/favicon.ico\\"><meta name=\\"msapplication-TileColor\\" content=\\"#f06a6d\\"><meta name=\\"msapplication-config\\" content=\\"/public/images/browserconfig.xml\\"><meta name=\\"theme-color\\" content=\\"#f0d9c8\\"><script src=\\"https://kit.fontawesome.com/7b41502243.js\\"></script><script src=\\"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js\\"></script></head><body><div class=\\"scrim\\"></div><header class=\\"header__wrapper\\"><div class=\\"header__logo\\"><a href=\\"/\\"><img src=\\"/public/images/gorumand_wordmark@2x.png\\" height=\\"56px\\"></a></div><div class=\\"header__menu-toggle\\"><i class=\\"fas fa-bars\\" id=\\"menu-toggle\\"></i></div><nav class=\\"header__nav\\"><ul class=\\"header__nav-list\\"><li class=\\"header__nav-item\\"><a href=\\"/recipes\\">My recipes</a></li><li class=\\"header__nav-item\\"><a href=\\"/shoppinglist\\">Shopping list</a></li><li class=\\"header__nav-item\\"><a href=\\"/discover\\">Discover</a></li><ul class=\\"header__auth-links\\"><li class=\\"header__nav-item\\"><a href=\\"/login\\">Log in</a></li><li class=\\"header__nav-item\\"><a href=\\"/register\\">Sign up</a></li></ul></ul></nav></header><div class=\\"page-body\\"><div class=\\"form-card\\"><div class=\\"form-card__main\\"><h3>Join Gourmand</h3><form class=\\"form--narrow\\" action=\\"/register\\" method=\\"POST\\"><input type=\\"text\\" name=\\"username\\" placeholder=\\"username\\" pattern=\\".{3,}\\" required><p class=\\"form__helper-text\\">Username must be 3 characters long</p><input type=\\"password\\" name=\\"password\\" placeholder=\\"password\\" pattern=\\".{6,}\\" required><p class=\\"form__helper-text\\">Password must be 6 characters long </p><button class=\\"button--primary\\">Sign Up</button></form></div><div class=\\"form-card__bottom\\"><p>Already have an account? <a href=\\"/login\\">Log in</a></p></div></div></div><footer class=\\"footer_wrapper\\"><p>© <a href=\\"http://deannellisdesign.com/\\">Dean Nellis</a> 2019</p></footer><script>$(document).ready(function(){
+    $(document).click(function(event) {
+        $target = $(event.target);
+        if($target[0].id == \\"menu-toggle\\") {
+            $(\\".header__nav\\").addClass(\\"header__nav--open\\");
+            $(\\".scrim\\").addClass(\\"scrim--show\\");
+            $('html, body').css({
+                overflow: 'hidden'
+            });
+        }else if(!$target.closest('.header__nav').length) {
+            $(\\".header__nav\\").removeClass(\\"header__nav--open\\");
+            $(\\".scrim\\").removeClass(\\"scrim--show\\");
+            $('html, body').css({
+                overflow: 'auto'
+            });
+        }
+    });
+});</script></body></html>"
+`;
